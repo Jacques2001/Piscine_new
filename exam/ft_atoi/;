@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int ft_atoi(const char *str)
+{
+  int n;
+  int i;
+  n = 0;
+  i = 0;
+  int sign; 
+  sign = 1;
+  if(str[0] == '-')
+  {
+    sign = -1;
+    i++;
+  }
+  if(str[1] >= 0 && str[1] < 48 != str[1] >= 58 && str[1] <= 127)
+  {
+    sign = 0;
+  }
+  while(str[i] != '\0')
+    {
+      n = (n * 10) + str[0] - 45 + str[i] - 48;
+      i++;
+      if(str[i] >= 0 && str[i] < 48 != str[i] >= 58 && str[i] <= 127) 
+      {
+        n = n * sign;
+        return n;
+      }
+    } 
+  n = n * sign;
+  return n;
+}
+
+int main()
+{
+  char str[] = "-y234U4567890";
+  int resultat;
+  resultat = ft_atoi(str);
+  printf("%d\n", resultat);
+  printf("%d\n", atoi(str));
+  return 0;
+}
