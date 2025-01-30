@@ -1,0 +1,71 @@
+#include <stdlib.h>
+#include <stdio.h>
+int ft_strlen(char *str)
+{
+  int i;
+  i = 0;
+  while(str[i] != '\0')
+    i++;
+  return i;
+}
+  
+int ft_lengthall(char **strs, char *sep)
+{
+  int i;
+  int x;
+  int y;
+  int total1;
+  int total2;
+  i = 0;
+  y = 0;
+  total1 = 0;
+  total2 = 0;
+  while(strs[i] != 0)
+  {
+    x = 0;
+    while(strs[i][x] != '\0')
+    {
+      x++;
+      if(strs[i][x] == '\0')
+      {
+        while(sep[y] != '\0')
+        {
+          y++;
+        }
+        total2 += y;
+      }
+    }
+    
+    total1 += x;
+    i++;
+  }
+  return total1 + total2;
+}
+
+/*char *ft_strjoin(int size, char **strs, char *sep)
+{
+  if(size == 0)
+    return malloc(
+  int i;
+  i = 0;
+  int u;
+  u = 0;
+  while(i < size - 1)
+  {
+    *strs = malloc(ft_strslen(strs[i]) + ft_seplen(sep)) * sizeof(char);
+    i++;
+  }
+}*/
+
+int main()
+{
+  int size;
+  char *strs[] = {"Hello", "World", "42"};
+  char sep[] = {", "};
+  int result;
+  //size = ft_strslen(strs);
+  //result = *ft_strjoin(size, *strs, sep);
+  result = ft_lengthall(strs, sep);
+  printf("%d\n", result);
+  return 0;
+}
